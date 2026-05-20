@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Nunito:wght@400;500;600;700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --cream: #f7f3e8;
+  --green: #8bc34a;
+  --green-dark: #5a8a1e;
+  --green-mid: #a5c96a;
+  --purple: #7c5cbf;
+  --text: #2d2d2d;
+  --muted: #777;
+  --white: #fff;
+  --border: #e0ddd4;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+}
+
+/* Scrollbar oculto */
+::-webkit-scrollbar { width: 0; }
+
+/* Layout desktop con sidebar */
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 220px;
+  min-height: 100vh;
+  background: var(--white);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  flex-shrink: 0;
+}
+
+.main-area {
+  flex: 1;
+  overflow-y: auto;
+  background: var(--cream);
+}
+
+/* Mobile: sidebar se convierte en barra inferior */
+@media (max-width: 768px) {
+  .app-layout { flex-direction: column; }
+  .sidebar {
+    width: 100%;
+    min-height: unset;
+    height: auto;
+    position: sticky;
+    bottom: 0;
+    top: unset;
+    flex-direction: row;
+    border-right: none;
+    border-top: 1px solid var(--border);
+    order: 2;
+  }
+  .sb-logo { display: none; }
+  .sb-nav { flex-direction: row; padding: 8px; justify-content: space-around; }
+  .sb-item span { display: none; }
+  .sb-item { justify-content: center; padding: 8px; }
+  .sb-bottom { display: none; }
+  .main-area { order: 1; }
+}
