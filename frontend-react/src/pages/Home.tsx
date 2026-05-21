@@ -113,9 +113,9 @@ function CustomDropdown({
 /* ─── Dropdown Calificación con estrella amarilla ──────── */
 function RatingDropdown({ value, onChange }: { value: string; onChange: (v: string) => void }) {
   const items = [
-    { label: "4.0 o más", value: "4" },
-    { label: "4.5 o más", value: "4.5" },
-    { label: "4.8 o más", value: "4.8" },
+    { label: "⭐️ 4.0 +", value: "4" },
+    { label: "⭐️ 4.5 +", value: "4.5" },
+    { label: "⭐️ 4.8 +", value: "4.8" },
   ];
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
