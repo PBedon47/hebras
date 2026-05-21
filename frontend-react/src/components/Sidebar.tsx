@@ -6,6 +6,7 @@ import {
   IconHome,
   IconUsers,
   IconUserCircle,
+  IconLogout,
 } from "@tabler/icons-react";
 
 const NAV = [
@@ -24,11 +25,24 @@ const NAV = [
     label: "Mi perfil",
     icon: <IconUserCircle size={22} />,
   },
+    {
+    path: "logout",
+    label: "Cerar seción",
+    icon: <IconLogout size={22} />,
+  },
 ];
 
 export default function Sidebar() {
   const navigate = useNavigate();
   const { pathname } = useLocation();
+
+  const handleLogout = () => {
+  localStorage.removeItem("hebras_user");
+
+  navigate("/login");
+
+  window.location.reload();
+};
 
   return (
     <aside
@@ -106,7 +120,13 @@ export default function Sidebar() {
     return (
       <button
         key={n.path}
-        onClick={() => navigate(n.path)}
+        onClick={() => {
+      if (n.path === "logout") {
+        handleLogout();
+      } else {
+        navigate(n.path);
+      }
+    }}
         style={{
           display: "flex",
           flexDirection:
