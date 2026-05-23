@@ -113,9 +113,9 @@ function CustomDropdown({
 /* ─── Dropdown Calificación con estrella amarilla ──────── */
 function RatingDropdown({ value, onChange }: { value: string; onChange: (v: string) => void }) {
   const items = [
-    { label: "⭐️ 4.0 +", value: "4" },
-    { label: "⭐️ 4.5 +", value: "4.5" },
-    { label: "⭐️ 4.8 +", value: "4.8" },
+    { label: "⭐ 4.0 +", value: "4" },
+    { label: "⭐ 4.5 +", value: "4.5" },
+    { label: "⭐ 4.8 +", value: "4.8" },
   ];
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -460,9 +460,10 @@ export default function Home() {
                   <div style={{ padding: "12px 14px 14px" }}>
                     <div style={{ display: "flex", alignItems: "center", gap: 5, fontWeight: 800, fontSize: 13, marginBottom: 2 }}>
                       {o.name}
-                      <div style={{ width: 14, height: 14, background: C.greenDark, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                        <i className="ti ti-check" style={{ fontSize: 9, color: "#fff" }} />
-                      </div>
+                      <svg width="16" height="16" viewBox="0 0 22 22" fill="none" style={{ flexShrink: 0 }}>
+                        <path d="M11 1.5C11.7 1.5 12.35 2.1 12.9 2.5C13.45 2.9 14.1 3.1 14.75 2.95C15.4 2.8 16.1 3.05 16.55 3.5C17 3.95 17.25 4.65 17.1 5.3C16.95 5.95 17.15 6.6 17.55 7.15C17.95 7.7 18.55 8.35 18.55 11C18.55 13.65 17.95 14.3 17.55 14.85C17.15 15.4 16.95 16.05 17.1 16.7C17.25 17.35 17 18.05 16.55 18.5C16.1 18.95 15.4 19.2 14.75 19.05C14.1 18.9 13.45 19.1 12.9 19.5C12.35 19.9 11.7 20.5 11 20.5C10.3 20.5 9.65 19.9 9.1 19.5C8.55 19.1 7.9 18.9 7.25 19.05C6.6 19.2 5.9 18.95 5.45 18.5C5 18.05 4.75 17.35 4.9 16.7C5.05 16.05 4.85 15.4 4.45 14.85C4.05 14.3 3.45 13.65 3.45 11C3.45 8.35 4.05 7.7 4.45 7.15C4.85 6.6 5.05 5.95 4.9 5.3C4.75 4.65 5 3.95 5.45 3.5C5.9 3.05 6.6 2.8 7.25 2.95C7.9 3.1 8.55 2.9 9.1 2.5C9.65 2.1 10.3 1.5 11 1.5Z" fill="#1d9bf0"/>
+                        <path d="M7.5 11.5L9.8 13.8L14.5 8.5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                      </svg>
                     </div>
                     <div style={{ fontSize: 11, color: C.muted, marginBottom: 4 }}>{o.tipo} · {o.distrito}</div>
                     {campanasFecha.length > 0 && (
