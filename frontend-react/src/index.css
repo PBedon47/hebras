@@ -1,29 +1,55 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Nunito:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Nunito:wght@400;600;700;800&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css');
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
   --cream: #f7f3e8;
-  --green: #8bc34a;
-  --green-dark: #5a8a1e;
-  --green-mid: #a5c96a;
+  --green: #a8d44f;
+  --green-dark: #4a7a15;
+  --dark-btn: #1e2d1a;
   --purple: #7c5cbf;
-  --text: #2d2d2d;
+  --text: #1a1a1a;
   --muted: #777;
+  --border: #ddddd0;
   --white: #fff;
-  --border: #e0ddd4;
+}
+
+/* ── FONDO GLOBAL: aplica a TODA la app ───────────────── */
+html {
+  min-height: 100%;
 }
 
 body {
   font-family: 'Nunito', sans-serif;
-  background: var(--cream);
   color: var(--text);
+  min-height: 100vh;
+  background-image: url('/src/assets/fondo-hebras.png');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;   /* fijo: no se mueve con el scroll */
+  background-color: #f5f3e8;      /* fallback si la img tarda en cargar */
 }
 
-/* Scrollbar oculto */
-::-webkit-scrollbar { width: 0; }
+/* Overlay suave sobre el fondo para legibilidad */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(245, 243, 232, 0.80);
+  pointer-events: none;
+  z-index: 0;
+}
 
-/* Layout desktop con sidebar */
+/* Todo el contenido encima del overlay */
+#root {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+}
+
+/* ── Layout desktop ── */
 .app-layout {
   display: flex;
   min-height: 100vh;
@@ -32,7 +58,7 @@ body {
 .sidebar {
   width: 220px;
   min-height: 100vh;
-  background: var(--white);
+  background: rgba(255, 255, 255, 0.96);
   border-right: 1px solid var(--border);
   display: flex;
   flex-direction: column;
@@ -42,13 +68,20 @@ body {
   flex-shrink: 0;
 }
 
+/* main-area transparente → se ve el fondo del body */
 .main-area {
   flex: 1;
   overflow-y: auto;
-  background: var(--cream);
+  background: transparent;
 }
 
-/* Mobile: sidebar se convierte en barra inferior */
+/* Páginas con fondo propio blanco/crema deben ser transparentes */
+/* para que el fondo global pase */
+.main-area > div {
+  background: transparent;
+}
+
+/* ── Mobile ── */
 @media (max-width: 768px) {
   .app-layout { flex-direction: column; }
   .sidebar {
@@ -69,4 +102,10 @@ body {
   .sb-item { justify-content: center; padding: 8px; }
   .sb-bottom { display: none; }
   .main-area { order: 1; }
+}
+
+::-webkit-scrollbar { width: 0; height: 0; }
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
 }

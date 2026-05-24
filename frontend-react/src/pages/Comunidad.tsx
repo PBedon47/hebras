@@ -180,7 +180,7 @@ export default function Comunidad() {
 
   /* ── STYLES ── */
   const s = {
-    page: { display: "flex", minHeight: "100vh", background: "#f3f4ee", gap: 0 } as React.CSSProperties,
+    page: { display: "flex", minHeight: "100vh", background: "transparent", gap: 0 } as React.CSSProperties,
 
     /* Feed column */
     feed: { flex: 1, minWidth: 0, borderRight: `1px solid ${C.border}` } as React.CSSProperties,
@@ -401,9 +401,7 @@ export default function Comunidad() {
                 <TrendingUp size={17} color={C.greenDark} />
                 Descubrir comunidades
               </div>
-              {noSiguiendo.filter(c => categoria === "Todas" ? true : c.categoria === categoria
-  )
-  .map(c => (
+              {comunidadesFiltradas.filter(c => !c.siguiendo).map(c => (
                 <ComunidadRow key={c.id} c={c} onToggle={toggleFollow} s={s} />
               ))}
               {comunidadesFiltradas.filter(c => !c.siguiendo).length === 0 && (

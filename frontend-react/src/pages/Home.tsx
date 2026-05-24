@@ -9,7 +9,6 @@ import techoPeru       from "../assets/techo-peru.png";
 import caminandoJuntos from "../assets/caminando-juntos.png";
 import bancoAlimentos  from "../assets/banco-alimentos.png";
 import manosUnidas     from "../assets/manos-unidas.png";
-import fondoHebras     from "../assets/fondo-hebras.png";
 
 const ONG_IMGS: Record<string, string> = {
   "techo-peru":       techoPeru,
@@ -113,9 +112,9 @@ function CustomDropdown({
 /* ─── Dropdown Calificación con estrella amarilla ──────── */
 function RatingDropdown({ value, onChange }: { value: string; onChange: (v: string) => void }) {
   const items = [
-    { label: "⭐ 4.0 +", value: "4" },
-    { label: "⭐ 4.5 +", value: "4.5" },
-    { label: "⭐ 4.8 +", value: "4.8" },
+    { label: "4.0 +", value: "4" },
+    { label: "4.5 +", value: "4.5" },
+    { label: "4.8 +", value: "4.8" },
   ];
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -326,16 +325,9 @@ export default function Home() {
     <div>
       <Topbar />
 
-      {/* ── SECCIÓN HERO + FILTROS con fondo completo ─────── */}
-      <div style={{
-        backgroundImage: `url(${fondoHebras})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center top",
-        backgroundRepeat: "no-repeat",
-        position: "relative",
-      }}>
-        {/* overlay semitransparente para legibilidad */}
-        <div style={{ position: "absolute", inset: 0, background: "rgba(245,243,232,0.78)", backdropFilter: "blur(0.5px)" }} />
+      {/* ── SECCIÓN HERO + FILTROS ─────────────────────────── */}
+      <div style={{ position: "relative" }}>
+        {/* Sin overlay extra — el fondo global ya viene del body */}
 
         <div style={{ position: "relative", zIndex: 1, padding: "36px 32px 32px" }}>
           {/* Saludo */}
