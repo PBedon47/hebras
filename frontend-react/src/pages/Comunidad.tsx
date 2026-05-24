@@ -176,7 +176,6 @@ export default function Comunidad() {
     : comunidades.filter(c => c.categoria === categoria);
 
   const siguiendo    = comunidades.filter(c => c.siguiendo);
-  const noSiguiendo  = comunidades.filter(c => !c.siguiendo);
 
   /* ── STYLES ── */
   const s = {
