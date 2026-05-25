@@ -20,7 +20,6 @@ import {
   Lock,
   Bell,
   Shield,
-  LogOut,
   Pencil,
   CheckCircle2,
   Clock,
@@ -227,6 +226,8 @@ export default function Perfil() {
   const [notif,       setNotif]       = useState({ email: true, push: true, news: false });
   const [pwForm,      setPwForm]      = useState({ current: "", next: "", confirm: "" });
   const [pwMsg,       setPwMsg]       = useState("");
+
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
 
   const puntos    = user.puntos || 420;
   const lvlIdx    = getLevelIndex(puntos);
@@ -606,19 +607,140 @@ export default function Perfil() {
             <span style={{ display:"flex", alignItems:"center", gap:10 }}><Bell size={16} color={C.greenDark}/>Preferencias de privacidad</span>
             <ChevronRight size={16} color={C.muted}/>
           </div>
+              <div
+                  style={menuRow(true)}
+                  onClick={() => setShowDeleteModal(true)}
+                >
+                
+              <span style={{ display:"flex", alignItems:"center", gap:10 }}>
+                <XCircle size={16}/>Eliminar cuenta
+              </span>
+
+              <ChevronRight size={16} color="#dc2626"/>
+            </div>
+          </div>
+           {showDeleteModal && (
+        <div
+          style={{
+            position: "fixed",
+            inset: 0,
+            background: "rgba(0,0,0,.45)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            zIndex: 999,
+            backdropFilter: "blur(4px)",
+            padding: 20,
+          }}
+        >
           <div
-            style={menuRow(true)}
-            onClick={() => { ls.set("hebras_user", null); window.location.reload(); }}
+            style={{
+              width: "100%",
+              maxWidth: 420,
+              background: "#fff",
+              borderRadius: 22,
+              padding: 28,
+              boxShadow: "0 20px 60px rgba(0,0,0,.25)",
+              animation: "fadeIn .2s ease",
+            }}
           >
-            <span style={{ display:"flex", alignItems:"center", gap:10 }}><LogOut size={16}/>Cerrar sesión</span>
-            <ChevronRight size={16} color="#dc2626"/>
+            {/* icono */}
+            <div
+              style={{
+                width: 70,
+                height: 70,
+                borderRadius: "50%",
+                background: "#fee2e2",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                margin: "0 auto 18px",
+              }}
+            >
+              <XCircle size={38} color="#dc2626" />
+            </div>
+
+            {/* titulo */}
+            <div
+              style={{
+                textAlign: "center",
+                fontWeight: 800,
+                fontSize: 22,
+                marginBottom: 10,
+                color: "#111827",
+              }}
+            >
+              Eliminar cuenta
+            </div>
+
+            {/* texto */}
+            <div
+              style={{
+                textAlign: "center",
+                fontSize: 14,
+                lineHeight: 1.6,
+                color: "#6b7280",
+                marginBottom: 24,
+              }}
+            >
+              Esta acción eliminará permanentemente tu cuenta,
+              campañas, postulaciones y certificados asociados.
+              <br /><br />
+              No podrás recuperar esta información después.
+            </div>
+
+            {/* botones */}
+            <div
+              style={{
+                display: "flex",
+                gap: 12,
+              }}
+            >
+              <button
+                onClick={() => setShowDeleteModal(false)}
+                style={{
+                  flex: 1,
+                  padding: "12px",
+                  borderRadius: 14,
+                  border: `1px solid ${C.border}`,
+                  background: "#fff",
+                  fontWeight: 700,
+                  cursor: "pointer",
+                }}
+              >
+                Cancelar
+              </button>
+
+              <button
+                onClick={() => {
+                  localStorage.removeItem("hebras_user");
+                  localStorage.removeItem("hebras_postulaciones");
+                  localStorage.removeItem("hebras_campanas");
+                  localStorage.removeItem("hebras_notificaciones");
+
+                  window.location.reload();
+                }}
+                style={{
+                  flex: 1,
+                  padding: "12px",
+                  borderRadius: 14,
+                  border: "none",
+                  background: "#dc2626",
+                  color: "#fff",
+                  fontWeight: 800,
+                  cursor: "pointer",
+                }}
+              >
+                Sí, eliminar
+              </button>
+            </div>
           </div>
         </div>
+      )}
 
-        <div style={{ height:30 }} />
+          <div style={{ height:30 }} />
+        </div>
       </div>
-    </div>
   );
-
   return null;
 }

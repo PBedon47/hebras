@@ -1,0 +1,122 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       Int    @id @default(autoincrement())
+  nombre   String
+  email    String @unique
+  password String
+  ciudad   String?
+  puntos   Int    @default(0)
+  nivel    String @default("BROTE")
+
+  posts    Post[]
+  likes    Like[]
+  comments Comment[]
+  follows  Follow[]
+  campanas CampanaRealizada[]
+}
+
+model Post {
+  id        Int      @id @default(autoincrement())
+  texto     String
+  imagen    String?
+  createdAt DateTime @default(now())
+
+  userId Int
+  user   User @relation(fields: [userId], references: [id])
+
+  likes    Like[]
+  comments Comment[]
+}
+
+model Like {
+  id Int @id @default(autoincrement())
+
+  userId Int
+  postId Int
+
+  user User @relation(fields: [userId], references: [id])
+  post Post @relation(fields: [postId], references: [id])
+
+  @@unique([userId, postId])
+}
+
+model Comment {
+  id        Int      @id @default(autoincrement())
+  texto     String
+  createdAt DateTime @default(now())
+
+  userId Int
+  postId Int
+
+  user User @relation(fields: [userId], references: [id])
+  post Post @relation(fields: [postId], references: [id])
+}
+
+model Ong {
+  id       Int    @id @default(autoincrement())
+  nombre   String
+  tipo     String
+  loc      String
+  distrito String
+  rating   Float
+  emoji    String
+  imgKey   String
+  mision   String
+  webUrl   String
+  whatsapp String
+
+  follows  Follow[]
+  campanas Campana[]
+}
+
+model Follow {
+  id Int @id @default(autoincrement())
+
+  userId Int
+  ongId  Int
+
+  user User @relation(fields: [userId], references: [id])
+  ong  Ong  @relation(fields: [ongId], references: [id])
+
+  @@unique([userId, ongId])
+}
+
+model Campana {
+  id Int @id @default(autoincrement())
+
+  ongId Int
+  ong   Ong @relation(fields: [ongId], references: [id])
+
+  nombre           String
+  desc             String
+  fecha            String
+  fechaISO         DateTime
+  fechaISOFin      DateTime?
+  vacantes         Int
+  tipo             String
+  imgKey           String
+  tasks            String
+  CampanaRealizada CampanaRealizada[]
+}
+
+model CampanaRealizada {
+  id Int @id @default(autoincrement())
+
+  userId    Int
+  campanaId Int
+
+  user    User    @relation(fields: [userId], references: [id])
+  campana Campana @relation(fields: [campanaId], references: [id])
+
+  horas  Int
+  pts    Int
+  rating Int
+}
