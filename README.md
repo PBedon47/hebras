@@ -1,96 +1,131 @@
 # 🌱 HEBRAS  
-## *“Tejiendo un mundo juntos”*
+### “Tejiendo un mundo juntos”
 
-> Cada voluntario representa un hilo capaz de generar un cambio social positivo en el Perú.
-
----
-
-# 📌 Idea de Negocio
-
-**HEBRAS** es una plataforma digital enfocada en conectar estudiantes y jóvenes con organizaciones no gubernamentales (ONG) y programas de voluntariado en el Perú.
-
-La aplicación busca facilitar el acceso a oportunidades de ayuda social mediante una experiencia moderna, intuitiva y personalizada, permitiendo a los usuarios encontrar actividades de voluntariado alineadas con sus intereses, disponibilidad y ubicación.
+Cada voluntario representa un hilo capaz de generar un cambio social positivo en el Perú.
 
 ---
 
-# 🎯 Propósito
+## 📌 Descripción del Proyecto
 
-Crear un espacio digital donde las personas puedan descubrir, explorar y participar en proyectos sociales que generen impacto positivo en distintas comunidades del país.
+**HEBRAS** es una plataforma digital que conecta a estudiantes y jóvenes con ONG y programas de voluntariado en el Perú.
 
----
-
-# 🏢 ONG y Programas de Voluntariado
-
-Dentro de la plataforma, los usuarios podrán visualizar distintas ONG y oportunidades de voluntariado con sus respectivos programas disponibles.
-
-Las organizaciones mostradas serán previamente seleccionadas considerando aspectos como:
-
-- Impacto social
-- Transparencia
-- Experiencia
-- Calidad en la gestión de voluntarios
-- Tipo de proyectos desarrollados
-
-Cada ONG contará con información importante como:
-
-- Misión y visión
-- Tipo de proyectos
-- Ubicación
-- Horarios disponibles
-- Requisitos para voluntarios
-- Áreas de trabajo
-  - Educación
-  - Salud
-  - Medio ambiente
-  - Desarrollo social
+Su objetivo es facilitar el acceso a oportunidades de ayuda social mediante una experiencia moderna, intuitiva y personalizada, permitiendo a los usuarios encontrar actividades alineadas con sus intereses, disponibilidad y ubicación.
 
 ---
 
-# ✨ Características Principales
+## 🎯 Propósito
 
-## 🔍 Personalización
-Los usuarios podrán encontrar oportunidades según:
-
-- Intereses personales
-- Carrera profesional
-- Disponibilidad
-- Ubicación
+Crear un espacio digital donde las personas puedan descubrir, explorar y participar en proyectos sociales que generen un impacto positivo en distintas comunidades del país.
 
 ---
 
-## ⭐ Sistema de Calificación
-Los voluntarios podrán compartir experiencias mediante:
+## 🏢 ONG y Programas de Voluntariado
 
-- Calificaciones de 0 a 5 estrellas
-- Comentarios sobre las actividades realizadas
-- Opiniones sobre la experiencia con la ONG
+Dentro de la plataforma, los usuarios pueden visualizar distintas ONG y oportunidades de voluntariado.
+
+Las organizaciones son seleccionadas considerando:
+
+- Impacto social  
+- Transparencia  
+- Experiencia  
+- Calidad en la gestión de voluntarios  
+- Tipos de proyectos desarrollados  
+
+Cada ONG incluye información como:
+
+- Misión y visión  
+- Tipo de proyectos  
+- Ubicación  
+- Horarios disponibles  
+- Requisitos para voluntarios  
+- Áreas de trabajo:
+  - Educación  
+  - Salud  
+  - Medio ambiente  
+  - Desarrollo social  
 
 ---
 
-## 💬 Comunicación Directa
-La plataforma permitirá una comunicación rápida mediante:
+## ✨ Características principales
 
-- Chat interno
-- Redirección a WhatsApp Business
-- Información sobre convocatorias y vacantes
+### 🔍 Personalización
+Los usuarios pueden encontrar oportunidades según:
+
+- Intereses personales  
+- Carrera profesional  
+- Disponibilidad  
+- Ubicación  
 
 ---
 
-# 💡 Propuesta de Valor
+### ⭐ Sistema de Calificación
+Los voluntarios pueden compartir su experiencia mediante:
+
+- Calificaciones de 0 a 5 estrellas  
+- Comentarios sobre actividades realizadas  
+- Opiniones sobre la ONG  
+
+---
+
+### 💬 Comunicación directa
+La plataforma permite comunicación rápida mediante:
+
+- Chat interno  
+- Redirección a WhatsApp Business  
+- Información sobre convocatorias y vacantes  
+
+---
+
+## 💡 Propuesta de valor
 
 HEBRAS busca convertirse en un puente entre jóvenes voluntarios y organizaciones sociales, promoviendo la participación ciudadana y facilitando el acceso a experiencias de impacto social confiables y accesibles.
 
 ---
 
-# 🇵🇪 Enfoque Territorial
+## 🇵🇪 Enfoque territorial
 
 Proyecto orientado al territorio peruano.
 
 ---
 
-# 🖥️ Estado del Proyecto
+## 🖥️ Estado del proyecto
 
-Actualmente se encuentra en desarrollo del frontend utilizando:
+Actualmente en desarrollo full stack.
 
-- React
-- TypeScript
+---
+
+## ⚙️ Tecnologías utilizadas
+
+### Frontend
+- React ⚛️  
+- TypeScript  
+
+### Backend
+- Node.js  
+- Express  
+
+### Base de datos
+- MySQL  
+- Prisma ORM  
+
+---
+
+## 🧠 Arquitectura del sistema
+
+- Frontend moderno y responsivo
+- API REST con Express
+- Autenticación y lógica de negocio en backend
+- ORM Prisma para gestión eficiente de datos
+- Base de datos relacional MySQL
+
+---
+
+## 🚀 Objetivo final
+
+Construir una plataforma escalable que conecte personas con impacto social real, fomentando el voluntariado en el Perú.
+
+---
+
+## 👨‍💻 Autor
+
+Proyecto desarrollado por **HEBRAS Team**
