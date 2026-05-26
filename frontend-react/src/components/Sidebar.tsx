@@ -27,7 +27,7 @@ const NAV = [
   },
     {
     path: "logout",
-    label: "Cerar seción",
+    label: "Cerrar seción",
     icon: <IconLogout size={22} />,
   },
 ];
